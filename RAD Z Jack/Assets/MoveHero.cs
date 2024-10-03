@@ -24,22 +24,32 @@ public class MoveHero : MonoBehaviour
             transform.position += transform.forward * Time.deltaTime;
             animator.SetBool("isRunning", true);
         }
-           
+
 
         if (Input.GetKey(KeyCode.A))
-            transform.Rotate(Vector3.up, -30*Time.deltaTime);
+            transform.Rotate(Vector3.up, -30 * Time.deltaTime);
 
         if (Input.GetKey(KeyCode.S))
             transform.position -= transform.forward * Time.deltaTime;
-        
+
         if (Input.GetKey(KeyCode.D))
             transform.Rotate(Vector3.up, 30 * Time.deltaTime);
-       
-        
-
-
-
-
-
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        print(collision.gameObject.name);
+        
+       collision.gameObject.transform.position += Vector3.forward;
+       footballScript myFootball = collision.gameObject.GetComponent<footballScript>();
+       if (myFootball != null)
+            myFootball.Kick();
+    }
+
+
+
+
+
+
+
+
 }
