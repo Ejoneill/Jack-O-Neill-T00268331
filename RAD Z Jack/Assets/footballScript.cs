@@ -11,7 +11,8 @@ public class footballScript : MonoBehaviour
     internal void Kick()
     {
         print("Ive been kicked!!");
-       // rb.AddExplosionForce(500, transform.position + new Vector3(0
+        rb.AddExplosionForce(500, transform.position + new Vector3(0, -1, -1), 2);
+        // rb.AddExplosionForce(500, transform.position + new Vector3(0
 
         {
          
